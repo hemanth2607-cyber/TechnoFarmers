@@ -235,7 +235,7 @@ const TRANSLATIONS = {
     // AI Call
     "call.header_btn": "📞 உழவன் AI அழைப்பு",
     "call.card_btn": "📞 வாய்ஸ் கால்",
-    "call.modal_title": "TerraPulse உழவன் AI • நேரலை குரல் அழைப்பு",
+    "call.modal_title": "TechnoFarmers உழவன் AI • நேரலை குரல் அழைப்பு",
     "call.status_calling": "அழைக்கிறது...",
     "call.status_connected": "இணைக்கப்பட்டது • 24 மணி நேர வேளாண் உதவி",
     "call.status_listening": "🔴 நீங்கள் பேசுவதைக் கேட்கிறது... பேசவும்",
@@ -389,7 +389,7 @@ const TRANSLATIONS = {
     "market.ai_tip_desc": "Tomato prices are expected to rise 15% next week due to heightened demand from restaurants. Consider harvesting early for peak profits.",
 
     // Stitch Screen Keys
-    "brand.name": "TerraPulse AI",
+    "brand.name": "TechnoFarmers",
     "brand.status": "AI Active • Online",
     "nav.telemetry": "Telemetry",
     "nav.irrigation": "Irrigation",
@@ -480,7 +480,7 @@ const TRANSLATIONS = {
     // AI Call
     "call.header_btn": "📞 Call AI Assistant",
     "call.card_btn": "📞 Voice Call",
-    "call.modal_title": "TerraPulse Ulavan AI • Live Voice Call",
+    "call.modal_title": "TechnoFarmers Ulavan AI • Live Voice Call",
     "call.status_calling": "Connecting...",
     "call.status_connected": "Connected • 24/7 Smart Agronomy Call",
     "call.status_listening": "🔴 Listening to your voice... Speak now",

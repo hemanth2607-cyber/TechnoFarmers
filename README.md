@@ -1,4 +1,4 @@
-# TerraPulse AI / உழவன் AI - Smart Farming Assistant 🌾🗼
+# TechnoFarmers / உழவன் AI - Smart Farming Assistant 🌾🗼
 
 > **An AI-powered Precision Agriculture & IoT Telemetry Platform with Real-Time Smart Tower Monitoring & Bilingual AI Voice Call Assistant.**
 
@@ -37,8 +37,8 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/hemanth2607-cyber/venkatproject.git
-   cd venkatproject
+   git clone https://github.com/hemanth2607-cyber/TechnoFarmers.git
+   cd TechnoFarmers
    ```
 
 2. **Install dependencies:**
@@ -62,7 +62,7 @@
 ## 📁 Project Structure
 
 ```
-venkatproject/
+TechnoFarmers/
 ├── backend/
 │   ├── app/
 │   │   ├── api/          # FastAPI routers and endpoints

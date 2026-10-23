@@ -9,8 +9,8 @@ from .seed_data import init_db
 from .routers import telemetry, controls, ai_assistant, marketplace, alerts, cctv, weather
 
 app = FastAPI(
-    title="AgroSmart & Ulavan Connect AI - Backend API",
-    description="Full-stack reverse-engineered & production-grade backend for Smart Agriculture, IoT Sensors, Automated Irrigation, Multilingual AI Voice Assistant, and Direct Farm Marketplace.",
+    title="TechnoFarmers & Ulavan Connect AI - Backend API",
+    description="Full-stack production-grade backend for TechnoFarmers Smart Agriculture, IoT Sensors, Automated Irrigation, Multilingual AI Voice Assistant, and Direct Farm Marketplace.",
     version="1.1.0"
 )
 
