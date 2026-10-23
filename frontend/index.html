@@ -211,12 +211,21 @@
     .call-wave-bar {
       transition: height 0.08s ease;
     }
+    /* Tamil Typography & Layout Safeguards */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    html[lang="ta"] body {
+      font-family: 'Noto Sans Tamil', 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.45;
+    }
   </style>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="font-sans text-sm text-on-surface flex flex-col min-h-screen relative selection:bg-primary-container selection:text-white">
+<body class="font-sans text-sm text-on-surface flex flex-col min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-white">
 
   <!-- ==================== FIXED AMBIENT LANDSCAPE BACKGROUND (PARALLAX GLIMPSE) ==================== -->
   <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" aria-hidden="true">
@@ -232,81 +241,82 @@
 
   <!-- ==================== TOP FULL-WIDTH HEADER ==================== -->
   <header class="fixed top-0 inset-x-0 z-50 bg-surface/95 backdrop-blur-xl shadow-xs border-b border-outline-variant/30 pt-safe">
-    <div class="h-16 w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between gap-4">
+    <div class="h-16 w-full px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4 max-w-7xl mx-auto">
       
       <!-- Brand Logo & Live AI Status -->
-      <div class="flex items-center gap-3 shrink-0">
-        <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-white shadow-sm shrink-0">
-          <span class="material-symbols-outlined text-[24px]">agriculture</span>
+      <div class="flex items-center gap-2.5 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-container flex items-center justify-center text-white shadow-sm shrink-0">
+          <span class="material-symbols-outlined text-[22px] sm:text-[24px]">agriculture</span>
         </div>
         <div class="flex flex-col min-w-0">
           <div class="flex items-center gap-1.5">
-            <span class="font-bold text-base text-primary tracking-tight" data-i18n="brand.name">TechnoFarmers</span>
+            <span class="font-extrabold text-sm sm:text-base text-primary tracking-tight" data-i18n="brand.name">TechnoFarmers</span>
+            <span class="hidden sm:inline text-xs text-primary/70 font-semibold">/ உழவன் AI</span>
           </div>
           <div class="flex items-center gap-1.5 mt-0.5">
             <span class="flex h-2 w-2 relative shrink-0">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
-            <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="brand.status">
+            <span class="text-[10px] sm:text-[11px] text-on-surface-variant font-medium truncate" data-i18n="brand.status">
               AI Active • Online
             </span>
           </div>
         </div>
       </div>
 
-      <!-- Desktop Navigation Links (Fast smooth scroll) -->
-      <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
-        <button onclick="scrollToSection('section-overview')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1.5 whitespace-nowrap">
-          <span class="material-symbols-outlined text-[18px]">grid_view</span>
+      <!-- Desktop Navigation Links (Fast smooth scroll, compact pills) -->
+      <nav class="hidden xl:flex items-center space-x-1 shrink">
+        <button onclick="scrollToSection('section-overview')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[17px]">grid_view</span>
           <span data-i18n="nav.dashboard">Dashboard</span>
         </button>
-        <button onclick="scrollToSection('section-smart-tower')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:bg-surface-container transition-colors flex items-center gap-1.5 whitespace-nowrap">
-          <span class="material-symbols-outlined text-[18px]">cell_tower</span>
-          <span data-i18n="tower.title">Smart Tower</span>
+        <button onclick="scrollToSection('section-smart-tower')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:bg-surface-container transition-colors flex items-center gap-1 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[17px]">cell_tower</span>
+          <span data-i18n="nav.tower">Smart Tower</span>
         </button>
-        <button onclick="scrollToSection('section-telemetry')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1.5 whitespace-nowrap">
-          <span class="material-symbols-outlined text-[18px]">sensors</span>
+        <button onclick="scrollToSection('section-telemetry')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[17px]">sensors</span>
           <span data-i18n="nav.telemetry">Telemetry</span>
         </button>
-        <button onclick="scrollToSection('section-irrigation')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1.5 whitespace-nowrap">
-          <span class="material-symbols-outlined text-[18px]">water_drop</span>
+        <button onclick="scrollToSection('section-irrigation')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[17px]">water_drop</span>
           <span data-i18n="nav.irrigation">Irrigation</span>
         </button>
-        <button onclick="scrollToSection('section-diagnostics')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1.5 whitespace-nowrap">
-          <span class="material-symbols-outlined text-[18px]">center_focus_strong</span>
+        <button onclick="scrollToSection('section-diagnostics')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[17px]">center_focus_strong</span>
           <span data-i18n="nav.diagnostics">Scanner &amp; CCTV</span>
         </button>
-        <button onclick="scrollToSection('ai-assistant-card')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1.5 whitespace-nowrap">
-          <span class="material-symbols-outlined text-[18px]">psychology_alt</span>
+        <button onclick="scrollToSection('ai-assistant-card')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[17px]">psychology_alt</span>
           <span data-i18n="nav.advisor">AI Advisor</span>
         </button>
       </nav>
 
       <!-- Action Controls: Place Picker, Theme Toggle & Bilingual Switch -->
-      <div class="flex items-center gap-2 shrink-0">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
         <!-- Call AI Button (Direct Voice Call) -->
-        <button onclick="startVoiceCallModal()" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-xs shadow-sm hover:shadow flex items-center gap-1.5 transition-all active:scale-95 animate-pulse" title="Call Ulavan AI / உழவன் AI அழைப்பு">
-          <span class="material-symbols-outlined text-[17px]">call</span>
-          <span class="hidden sm:inline" data-i18n="call.header_btn">Call AI</span>
+        <button onclick="startVoiceCallModal()" class="px-3 py-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-xs shadow-sm hover:shadow flex items-center gap-1.5 transition-all active:scale-95 shrink-0 animate-pulse" title="Call AI / நேரலை குரல் அழைப்பு">
+          <span class="material-symbols-outlined text-[16px]">call</span>
+          <span class="font-bold text-xs" data-i18n="call.nav_btn">Call AI</span>
         </button>
 
         <!-- Location Picker Button -->
-        <button onclick="openLocationModal()" class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors flex items-center gap-1.5 text-on-surface border border-outline-variant/40 text-xs shadow-xs" title="Select Place / இடம் தேர்வு">
-          <span class="text-primary text-[14px]">📍</span>
-          <span id="hero-selected-place" class="font-semibold text-primary">கோயம்புத்தூர்</span>
-          <span id="hero-live-temp" class="text-stone-500 font-mono text-[11px]">29°C</span>
+        <button onclick="openLocationModal()" class="hidden md:flex px-2.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors items-center gap-1 text-on-surface border border-outline-variant/40 text-xs shadow-xs shrink-0 max-w-[150px]" title="Select Place / இடம் தேர்வு">
+          <span class="text-primary text-[13px]">📍</span>
+          <span id="hero-selected-place" class="font-semibold text-primary truncate max-w-[70px]">கோயம்புத்தூர்</span>
+          <span id="hero-live-temp" class="text-stone-500 font-mono text-[11px] shrink-0">29°C</span>
         </button>
 
         <!-- Dark / Light Theme Toggle Button -->
-        <button id="themeToggleBtn" onclick="toggleTheme()" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high transition-all flex items-center justify-center text-on-surface border border-outline-variant/40 shadow-xs active:scale-95" title="Toggle Dark/Light Mode">
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high transition-all flex items-center justify-center text-on-surface border border-outline-variant/40 shadow-xs active:scale-95 shrink-0" title="Toggle Dark/Light Mode">
           <span class="material-symbols-outlined text-[18px]" id="theme-toggle-icon">dark_mode</span>
         </button>
 
         <!-- Bilingual Language Toggle Button -->
-        <button id="langToggleBtn" onclick="toggleLanguageGlobal()" class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors flex items-center gap-1 text-on-surface border border-outline-variant/40 text-xs font-semibold shadow-xs" title="Switch Language">
+        <button id="langToggleBtn" onclick="toggleLanguageGlobal()" class="px-2.5 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors flex items-center gap-1 text-on-surface border border-outline-variant/40 text-xs font-semibold shadow-xs shrink-0" title="Switch Language">
           <span id="langTA" class="text-primary font-bold">தமிழ்</span>
-          <span class="text-outline-variant">/</span>
+          <span class="text-outline-variant text-[10px]">/</span>
           <span id="langEN" class="text-on-surface-variant font-medium">EN</span>
         </button>
       </div>
@@ -1188,30 +1198,30 @@
         <section id="ai-assistant-card" class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm border border-outline-variant/20 flex flex-col gap-3.5 xl:sticky xl:top-20">
           
           <!-- AI Header -->
-          <div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
-            <div class="flex items-center gap-3 min-w-0">
-              <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shrink-0">
-                <span class="material-symbols-outlined text-[24px]">psychology_alt</span>
+          <div class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 border-b border-outline-variant/20 pb-3">
+            <div class="flex items-center gap-2.5 min-w-0 flex-1">
+              <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shrink-0">
+                <span class="material-symbols-outlined text-[22px]">psychology_alt</span>
               </div>
               <div class="min-w-0 flex-1">
-                <div class="flex flex-wrap items-center gap-1.5">
-                  <h3 class="text-sm font-bold text-on-surface leading-tight" data-i18n="stitch.advisor_title">உழவன் தோழன் AI</h3>
-                  <span class="text-[10px] bg-primary/10 text-primary font-bold px-2 py-0.5 rounded-full shrink-0">Groq / Gemini</span>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="text-sm font-bold text-on-surface truncate" data-i18n="stitch.advisor_title">உழவன் தோழன் AI</h3>
+                  <span class="text-[9px] bg-primary/10 text-primary font-bold px-1.5 py-0.5 rounded-full shrink-0">Groq AI</span>
                 </div>
-                <p class="text-[11px] text-on-surface-variant mt-0.5" data-i18n="stitch.advisor_sub">நேரலை வேளாண் வழிகாட்டி</p>
+                <p class="text-[11px] text-on-surface-variant truncate" data-i18n="stitch.advisor_sub">நேரலை வேளாண் வழிகாட்டி</p>
               </div>
             </div>
             
             <div class="flex items-center gap-1.5 shrink-0">
               <!-- Direct AI Voice Call Button -->
-              <button onclick="startVoiceCallModal()" class="px-2.5 py-1 text-xs rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center gap-1 shadow-xs transition-all active:scale-95 animate-pulse" title="Voice Call Ulavan AI / உழவன் AI நேரலை குரல் அழைப்பு">
+              <button onclick="startVoiceCallModal()" class="px-2.5 py-1 text-xs rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center gap-1 shadow-xs transition-all active:scale-95 animate-pulse" title="Voice Call / நேரலை குரல் அழைப்பு">
                 <span class="material-symbols-outlined text-[15px]">call</span>
                 <span data-i18n="call.card_btn">Call</span>
               </button>
               <!-- Global Read Aloud Replay Button -->
               <button onclick="replayLastSpeech()" class="px-2.5 py-1 text-xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold flex items-center gap-1 border border-outline-variant/30 transition-all shrink-0" title="Replay Last Speech">
                 <span>🔊</span>
-                <span class="hidden sm:inline" data-i18n="stitch.read_aloud">Read Aloud</span>
+                <span class="hidden sm:inline" data-i18n="stitch.read_aloud">வாசி</span>
               </button>
             </div>
           </div>

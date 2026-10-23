@@ -153,9 +153,9 @@ async def call_groq_llm(user_message: str, system_prompt: str, api_key: str) -> 
         "Content-Type": "application/json"
     }
     candidate_models = [
-        "qwen/qwen3.8-27b",
+        "openai/gpt-oss-20b",
         "openai/gpt-oss-120b",
-        "openai/gpt-oss-20b"
+        "qwen/qwen3.8-27b"
     ]
     for model in candidate_models:
         payload = {
@@ -164,11 +164,11 @@ async def call_groq_llm(user_message: str, system_prompt: str, api_key: str) -> 
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message}
             ],
-            "temperature": 0.4,
-            "max_tokens": 400
+            "temperature": 0.25,
+            "max_tokens": 150
         }
         try:
-            async with httpx.AsyncClient(timeout=6.0) as client:
+            async with httpx.AsyncClient(timeout=4.5) as client:
                 resp = await client.post(url, headers=headers, json=payload)
                 if resp.status_code == 200:
                     data = resp.json()

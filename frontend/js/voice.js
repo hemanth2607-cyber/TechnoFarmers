@@ -15,24 +15,24 @@ let chatRecognition = null;
 
 const VOICE_KNOWLEDGE = {
   ta: {
-    callWelcome: "வணக்கம் உழவரே, உங்கள் தோட்டத்து பயிருக்கு என்ன உதவி வேண்டும்?",
-    greeting: "வணக்கம் உழவரே, நான் உங்களின் உழவன் ஏஐ உதவியாளர். மண் ஈரப்பதம், மழை நிலவரம், உரம், பூச்சி மேலாண்மை அல்லது தக்காளி மண்டி விலை பற்றி கேளுங்கள்.",
-    soilMoisture: "உங்கள் தோட்டத்தின் மண் ஈரப்பதம் தற்போது 78 சதவீதம் ஆக உள்ளது. இது தக்காளி செடிகளுக்கு மிகவும் உகந்த அளவு. இப்போது தண்ணீர் பாய்ச்ச தேவையில்லை.",
-    weather: "நாளை உங்கள் பகுதியில் மழை பெய்ய வாய்ப்புள்ளது. வேர் அழுகல் மற்றும் நீர் தேங்குவதை தடுக்க நீர்ப்பாசனத்தை 50 சதவீதம் குறைத்துக் கொள்ளவும்.",
-    pests: "தக்காளி இலைகளில் அசுவினி மற்றும் சாறு உறிஞ்சும் பூச்சிகள் தென்படுகின்றன. ஒரு லிட்டர் தண்ணீருக்கு 5 மில்லி வேப்பெண்ணெய் கலந்து அதிகாலை அல்லது மாலை வேளையில் தெளிக்கவும்.",
+    callWelcome: "வணக்கம் உழவரே! நான் டெக்னோஃபார்மர்ஸ் உழவன் ஏஐ. உங்கள் தோட்டத்துப் பயிருக்கு என்ன ஆலோசனை வேண்டும்?",
+    greeting: "வணக்கம் உழவரே! நான் டெக்னோஃபார்மர்ஸ் உழவன் ஏஐ உதவியாளர். மண் ஈரப்பதம், மழை நிலவரம், உரம், பூச்சி மேலாண்மை அல்லது தக்காளி மண்டி விலை பற்றி கேளுங்கள்.",
+    soilMoisture: "உங்கள் தோட்டத்தின் நேரலை மண் ஈரப்பதம் 78 சதவீதம் ஆக உள்ளது. இது தக்காளி செடிகளுக்கு மிகவும் உகந்தது. இப்போது சொட்டுநீர் பாசனம் பாய்ச்ச தேவையில்லை.",
+    weather: "நாளை உங்கள் கோயம்புத்தூர் பகுதியில் 85 சதவீதம் மழை பெய்ய வாய்ப்புள்ளது. வேர் அழுகலைத் தடுக்க பாசனத்தை 50 சதவீதம் குறைத்துக் கொள்ளவும்.",
+    pests: "தக்காளி இலைகளில் அசுவினி அல்லது சாறு உறிஞ்சும் பூச்சிகள் தென்பட்டால் ஒரு லிட்டர் தண்ணீருக்கு 5 மில்லி வேப்பெண்ணெய் கரைசல் கலந்து அதிகாலை தெளிக்கவும்.",
     harvest: "பழங்களின் நிற மாற்றத்தின்படி இன்னும் ஐந்து முதல் ஏழு நாட்களில் தக்காளி அறுவடைக்கு முழுமையாக தயாராகிவிடும்.",
-    price: "இன்றைய மண்டி நிலவரப்படி தக்காளி கிலோவுக்கு 85 ரூபாய் வரை நல்ல விலைக்கு போகிறது. நல்ல கிராக்கி இருப்பதால் அறுவடை செய்ய உகந்த நேரம்.",
-    fertilizer: "பூ மற்றும் காய் பிடிக்கும் பருவத்தில் பொட்டாசியம் மற்றும் பாஸ்பரஸ் தேவை அதிகம். 19 19 19 அல்லது 0 52 34 நீரில் கரையும் உரத்தை சொட்டுநீர் மூலம் கொடுக்கலாம்."
+    price: "இன்றைய மண்டி நிலவரப்படி தக்காளி கிலோவுக்கு 85 ரூபாய் வரை நல்ல விலைக்கு போகிறது. நல்ல கிராக்கி இருப்பதால் அறுவடை செய்து விற்பனைக்கு அனுப்ப உகந்த நேரம்.",
+    fertilizer: "பூ மற்றும் காய் பிடிக்கும் பருவத்திற்கு தழைச்சத்து, மணிச்சத்து, சாம்பல்சத்து நிறைந்த 19 19 19 அல்லது 0 52 34 நீரில் கரையும் உரத்தை சொட்டுநீர் மூலம் கொடுக்கலாம்."
   },
   en: {
-    callWelcome: "Vanakkam farmer! Tell me, what advice do you need for your crops today?",
-    greeting: "Vanakkam! I'm your AgroSmart farm assistant. Ask me anything about soil moisture, weather, pests, tomato prices, or fertilizers in Tamil, Thanglish, or English!",
-    soilMoisture: "Your live soil moisture is at 78%, which is optimal for tomato crops. Drip irrigation does not need to be triggered right now.",
-    weather: "Tomorrow's forecast predicts rain in your region. It is recommended to reduce irrigation by 50% to prevent root rot and waterlogging.",
-    pests: "Early aphid symptoms detected on lower tomato foliage. Spray 5ml neem oil mixed with 1ml liquid soap per liter of water early morning or late evening.",
+    callWelcome: "Hello Farmer! I am TechnoFarmers AI. What guidance do you need for your crops today?",
+    greeting: "Hello! I am your TechnoFarmers AI assistant. Ask me anything about soil moisture, weather forecasts, fertilizers, pest control, or market prices.",
+    soilMoisture: "Your live soil moisture is at 78 percent, which is optimal for tomato crops. Drip irrigation does not need to be activated right now.",
+    weather: "Tomorrow's forecast predicts rain in your region. It is recommended to reduce irrigation by 50 percent to prevent waterlogging.",
+    pests: "For aphids or sucking pests, spray 5ml cold-pressed neem oil mixed with 1ml liquid soap per liter of water early morning or late evening.",
     harvest: "Based on current color-break staging and vegetative growth index, your tomatoes will reach peak harvest readiness in 5 to 7 days.",
-    price: "Current APMC Mandi tomato price is 85 rupees per kg with strong wholesale demand. High market advantage for immediate harvest planning.",
-    fertilizer: "For the flowering to fruiting stage, apply NPK 13:0:45 or 0:52:34 along with Micronutrient mix via fertigation for high fruit setting."
+    price: "Current APMC Mandi tomato price is 85 rupees per kilogram with high market demand. Excellent time for harvesting.",
+    fertilizer: "For the flowering to fruiting stage, apply NPK 19-19-19 or 0-52-34 along with micronutrients via fertigation for high fruit setting."
   }
 };
 
@@ -110,12 +110,24 @@ function speakText(text, lang = currentVoiceLang, onEndCallback = null) {
 
   const targetLang = (lang === 'ta' || lang === 'tamil' || lang === 'thanglish') ? 'ta' : 'en';
 
-  // Strategy A: Native Tamil MP3 Audio Stream from backend endpoint
+  // Instant zero-latency speech synthesis if browser has voice available
+  if ('speechSynthesis' in window) {
+    const voices = synth ? synth.getVoices() : [];
+    const hasVoice = voices.some(v => targetLang === 'ta' 
+      ? (v.lang.toLowerCase().startsWith('ta') || v.name.toLowerCase().includes('tamil') || v.name.includes('Valluvar'))
+      : (v.lang.toLowerCase().startsWith('en')));
+
+    if (hasVoice) {
+      speakWithWebSpeechFallback(clean, targetLang, onEndCallback);
+      return;
+    }
+  }
+
+  // Strategy B: Native Tamil MP3 Audio Stream from backend endpoint
   const apiHost = window.AGRO_API_HOST || "";
   const audioUrl = `${apiHost}/api/ai/tts?text=${encodeURIComponent(clean)}&lang=${targetLang}`;
   const audio = new Audio(audioUrl);
-  // User requested: "let the voice be a very little faster"
-  audio.playbackRate = 1.08;
+  audio.playbackRate = 1.12;
   currentPlayingAudio = audio;
 
   let audioPlaybackFailed = false;
@@ -166,8 +178,8 @@ function speakWithWebSpeechFallback(cleanText, lang, onEndCallback) {
     utterance.lang = 'en-IN';
   }
 
-  // Slightly faster speech rate (1.08)
-  utterance.rate = 1.08;
+  // Crisp, fast, natural speech rate
+  utterance.rate = 1.14;
   utterance.pitch = 1.0;
 
   utterance.onend = () => {
@@ -429,11 +441,11 @@ function startVoiceCallModal() {
     quoteEl.innerHTML = `<span class="opacity-60 italic">${isTa ? "இணைக்கிறது..." : "Dialing..."}</span>`;
   }
 
-  // Play outgoing phone dial tone
+  // Play outgoing phone dial tone briefly
   playPhoneRingtone();
   startVisualizerWaves(false);
 
-  // Connect after 1.8s
+  // Connect quickly after 450ms
   setTimeout(() => {
     stopPhoneRingtone();
     playConnectChime();
@@ -443,8 +455,8 @@ function startVoiceCallModal() {
 
     if (statusLine) {
       statusLine.innerText = isTa 
-        ? "🟢 அழைப்பு இணைக்கப்பட்டது • உழவன் தோழன் பேசுகிறது..." 
-        : "🟢 Call Connected • Ulavan AI Speaking...";
+        ? "🟢 அழைப்பு இணைக்கப்பட்டது • TechnoFarmers AI பேசுகிறது..." 
+        : "🟢 Call Connected • TechnoFarmers AI Speaking...";
     }
 
     const welcome = VOICE_KNOWLEDGE[currentVoiceLang]?.callWelcome || VOICE_KNOWLEDGE['ta'].callWelcome;
@@ -460,7 +472,7 @@ function startVoiceCallModal() {
       if (timerEl) timerEl.innerText = `${mins}:${secs}`;
     }, 1000);
 
-    // Speak welcome aloud, then automatically listen to farmer
+    // Speak welcome aloud immediately, then automatically listen to farmer
     speakText(welcome, currentVoiceLang, () => {
       startVisualizerWaves(false);
       if (!isCallMicMuted && modal.classList.contains('flex')) {
@@ -468,7 +480,7 @@ function startVoiceCallModal() {
       }
     });
 
-  }, 1800);
+  }, 450);
 
   if (window.lucide && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
@@ -530,13 +542,15 @@ function startCallListening() {
       let reply = null;
       try {
         if (window.AgroAPI && typeof AgroAPI.chatWithAI === 'function') {
-          const res = await AgroAPI.chatWithAI(userText, currentVoiceLang, locationContext);
+          const fetchPromise = AgroAPI.chatWithAI(userText, currentVoiceLang, locationContext);
+          const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 2200));
+          const res = await Promise.race([fetchPromise, timeoutPromise]);
           if (res) {
             reply = res.speech_text || res.reply;
           }
         }
       } catch (err) {
-        console.warn("Call chat API error:", err);
+        console.warn("Call chat API fast timeout/error, applying smart local agronomy rules:", err);
       }
 
       if (!reply) {
